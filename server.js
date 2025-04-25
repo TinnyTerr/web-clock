@@ -3,8 +3,15 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-let displayText = "Welcome to the clock server!";
+let displayText = "";
 
+app.use((req, res, next) => {
+  if ([".ts", ".map"].includes(req.path)) {
+    res.sendStatus(404);
+  } else {
+    next()
+  }
+})
 app.use(express.static('public'));
 app.use(express.json());
 
