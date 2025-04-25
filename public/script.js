@@ -2,8 +2,8 @@
 
 function updateClock() {
     const now = new Date();
-    const timeString = now.toLocaleTimeString();
-    const dateString = now.toLocaleDateString()
+    const timeString = now.toLocaleTimeString("en-us");
+    const dateString = now.toLocaleDateString("en-gb")
 
     let element = document.getElementById('clock')
     if (element !== null) element.textContent = timeString;
